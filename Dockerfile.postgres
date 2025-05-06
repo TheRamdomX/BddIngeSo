@@ -1,10 +1,8 @@
 FROM postgres:13
 
-# Solo necesitamos copiar los archivos de configuración
 COPY postgresql.conf /etc/postgresql/
 COPY init.sql /docker-entrypoint-initdb.d/
 
-# Ajustar permisos
 RUN chown postgres:postgres /etc/postgresql/postgresql.conf && \
     chmod 644 /etc/postgresql/postgresql.conf
 
